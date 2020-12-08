@@ -1,13 +1,14 @@
-import { Button } from 'antd';
 import './App.less';
+import Login from './views/login/index';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 function App() {
     return (
-        <div className='App'>
-            <Button type='primary' style={{ marginLeft: 8 }}>
-                Primary Button
-            </Button>
-        </div>
+        <BrowserRouter>
+            <Switch>
+                <Route exact component={Login} path='/' />
+            </Switch>
+        </BrowserRouter>
     );
 }
 
