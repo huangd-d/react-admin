@@ -1,6 +1,7 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row } from 'antd';
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom' // 白名单
 import './index.less';
 
 import { validate_password } from './../../utils/validate';
@@ -16,6 +17,8 @@ class LoginForm extends Component {
         Login(values)
             .then((res) => {
                 console.log(res);
+                // 白名单包裹之后 props 就有了 history参数
+                // this.props.history.push('/index');
             })
             .catch((e) => {
                 console.log(e);
@@ -79,4 +82,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
